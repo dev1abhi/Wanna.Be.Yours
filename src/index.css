@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+div.subtitle{
+  max-width: 800px;
+  background-color: azure;
+  margin: 0 auto;
+ 
+}
+
+
+.lyrics-container {
+  margin-top: 100px;
+  position: relative;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.lyric {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 100px; /* Adjust line height to center vertically */
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  font-weight: normal;
+  font-family: "Lovers Quarrel", cursive;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Adjust transition timing as needed */
+}
+
+.lyric.active {
+  opacity: 1;
+}
+
+
+
+
+.heartbeat-container {
+  margin-top: 10px;
+}
+
+.heartbeat-graph {
+  width: 90%;
+  height: 80px;
+  overflow: hidden;
+}
+
+.polyline {
+  fill: none;
+  stroke: #ff0000;
+  stroke-width: 1;
+}
+
+
+
+.video-container {
+  display: flex;
+  justify-content: center; /* Center the video horizontally */
+  align-items: center; /* Center the video vertically */
+  position: relative;
+  width: 100%;
+  border-radius: 20px; /* Set the desired border radius */
+}
+
+.video-container::after {
+  border-radius: 1.2rem;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* Add a semi-transparent overlay */
+  pointer-events: none; /* Allow clicks to pass through the overlay */
+  
+}
+
+.rounded-video {
+  border-radius: 20px; /* Set the desired border radius */
+  overflow: hidden; /* Ensure the border radius is applied */
+}
