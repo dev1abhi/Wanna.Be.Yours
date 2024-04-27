@@ -2,11 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Heartbeat from './heartbeat';
 
 const lyricsData = [
-  "Secrets I have held in my heart",
-  "Are harder to hide than I thought",
-  "Maybe I just wanna be yours",
-  "I wanna be yours, I wanna be yours",
-  // Add more lyrics as needed
+  { text: "Secrets I have held in my heart", duration: 5000 },
+  { text: "Are harder to hide than I thought", duration: 4000 },
+  { text: "Maybe I just wanna be yours", duration: 4000 },
+  { text: "I wanna be yours, I wanna be yours", duration: 5000 },
+  { text: "If you like your coffee hot", duration: 1200 },
+  { text: "Wanna be yours", duration: 2400 },
+  { text: "let me be your coffee pot", duration: 1600 },
+  { text: "Wanna be yours", duration: 2400 },
+  { text: "You call the shots babe", duration: 2300 },
+  { text: "Wanna be yours", duration: 1600 },
+  { text: "Just wanna be yours", duration: 2000 },
+  { text: "wanna be yours", duration: 2400 },
 ];
 
 const Frontpage = ({onStartVideoPlayback}) => {
@@ -55,14 +62,19 @@ const Frontpage = ({onStartVideoPlayback}) => {
 
   // useEffect for changing lyrics
   useEffect(() => {
-    let intervalId;
     if (audioPermissionGranted) {
-      intervalId = setInterval(() => {
-        setCurrentLyricIndex((prevIndex) => (prevIndex + 1) % lyricsData.length);
-      }, 6000); // Adjust timing as needed
+      const changeLyric = () => {
+        setCurrentLyricIndex(prevIndex => (prevIndex + 1) % lyricsData.length);
+      };
+  
+      // Set initial interval
+      let timeoutId = setTimeout(changeLyric, lyricsData[currentLyricIndex].duration);
+  
+      // Clear and reset interval on lyric change
+      return () => clearTimeout(timeoutId);
     }
-    return () => clearInterval(intervalId);
-  }, [audioPermissionGranted]);
+  }, [audioPermissionGranted, currentLyricIndex]);
+  
 
   return (
     <div className="lyrics-container">
@@ -78,7 +90,7 @@ const Frontpage = ({onStartVideoPlayback}) => {
           key={index}
           className={`lyric ${index === currentLyricIndex ? 'active' : ''}`}
         >
-          {lyric}
+          {lyric.text}
         </div>
       ))}
 

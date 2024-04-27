@@ -26,7 +26,7 @@ const VideoPlayer = ({playVideo}) => {
     // Set the start time of the loop in seconds
     const startTime = 10;
     // Set the end time of the loop in seconds
-    const endTime = 50;
+    const endTime = 180;
 
     // Check if the player reference is available
     if (playerRef.current) {
@@ -50,7 +50,7 @@ const VideoPlayer = ({playVideo}) => {
   };
 
   // Video ID of the YouTube video you want to embed
-  const videoId = 'OBk3ynRbtsw';
+  const videoId = '_JJAAhRR_88';
 
   return (
     <div className="video-container"> {/* Apply CSS class for styling */}

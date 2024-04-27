@@ -43,7 +43,7 @@ div.subtitle{
   line-height: 100px; /* Adjust line height to center vertically */
   text-align: center;
   color: white;
-  font-size: 80px;
+  font-size: 6vw;
   font-weight: normal;
   font-family: "Lovers Quarrel", cursive;
   opacity: 0;
@@ -85,7 +85,9 @@ div.subtitle{
 }
 
 .video-container::after {
+  pointer-events: none;
   border-radius: 1.2rem;
+  
   content: '';
   display: block;
   position: absolute;
@@ -99,6 +101,7 @@ div.subtitle{
 }
 
 .rounded-video {
+  pointer-events: none;
   border-radius: 20px; /* Set the desired border radius */
   overflow: hidden; /* Ensure the border radius is applied */
 }
