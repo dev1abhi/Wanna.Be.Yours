@@ -78,6 +78,7 @@ const Frontpage = ({onStartVideoPlayback}) => {
 
   return (
     <div className="lyrics-container">
+      {/* add loop in audio div if u want the music to loop */}
       {audioPermissionGranted && (
         <audio controls loop autoPlay style={{ position: 'absolute', left: '-9999px', opacity: '0' }}>
           <source src="/music/wannabeyours1.mp4" type="audio/mpeg" />
